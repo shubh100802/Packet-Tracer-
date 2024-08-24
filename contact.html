@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Network Monitoring</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4CAF50, #009688);
+            
+            color: #333;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #007bff;
+          
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+           
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+            
+        }
+
+        /* Add animation to the navbar */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            animation: slideDown 0.5s ease;
+        }
+
+       
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            animation: slideDown 0.5s ease;
+        }
+
+        /* Style the content */
+        .content {
+            padding-top: 100px;
+           
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            color: black;
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .contact-form input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Social media icons */
+        .social-icons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+            text-decoration: none; 
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Notification styles */
+        .notification {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <a href="/">Home</a>
+        <a href="/contribution">Contribution</a>
+        <a href="/guidance">Guidance</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h1>Contact Us</h1>
+        <div class="box">
+            <h2>Get in Touch</h2>
+            <p>Feel free to reach out to us for any inquiries or assistance.</p>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <input type="text" id="fname" name="fname" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
+        </div>
+
+        <div class="social-icons">
+            <h2>Follow Us</h2>
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Packet Tracer. All rights reserved.
+    </footer>
+
+    <div class="notification" id="notification">Message sent successfully!</div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var form = event.target;
+            var formData = new FormData(form);
+
+            if (form.checkValidity()) {
+                
+                setTimeout(function () {
+                    // Display the notification
+                    var notification = document.getElementById("notification");
+                    notification.style.display = "block";
+
+                    // Hide the notification after 3 seconds
+                    setTimeout(function () {
+                        notification.style.display = "none";
+                    }, 3000);
+                }, 1000);
+            } else {
+                alert("Please fill in all fields properly.");
+            }
+        });
+    </script>
+</body>
+
+</html>

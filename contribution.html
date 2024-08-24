@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribution - Network Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4CAF50, #009688);
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            animation: slideDown 0.5s ease;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            animation: slideDown 0.5s ease;
+        }
+
+        .content {
+            padding-top: 100px;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            color: black;
+        }
+
+        .student-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInCard 1s forwards;
+        }
+
+        @keyframes fadeInCard {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .student-card img {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            animation: fadeInImg 1s forwards;
+        }
+
+        @keyframes fadeInImg {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .student-card h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .student-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            animation: fadeInText 1s forwards;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <a href="/">Home</a>
+        <a href="/contribution">Contribution</a>
+        <a href="/guidance">Guidance</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h1>Contribution</h1>
+
+        <div style="display: flex; justify-content: space-between;">
+            <div class="student-card">
+                <img src="student1.jpg" alt="Shubh">
+                <h2>Shubham Raj Sharma</h2>
+                <p>Contribution: ......</p>
+            </div>
+
+            <!-- <div class="student-card">
+                <img src="student2.jpg" alt="Diviz">
+                <h2>Diviz Pandey</h2>
+                <p>Contribution: .....</p>
+            </div>
+
+            <div class="student-card">
+                <img src="student3.jpg" alt="Mehank">
+                <h2>Mehank</h2>
+                <p>Contribution: ......</p>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+            <div class="student-card">
+                <img src="student4.jpg" alt="Powar">
+                <h2>Powar Yash</h2>
+                <p>Contribution: ....</p>
+            </div>
+
+            <div class="student-card">
+                <img src="student5.jpg" alt="Anirudh">
+                <h2>Anirudh Gupta</h2>
+                <p>Contribution: ........</p>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Packet Tracer. All rights reserved.</p>
+    </div>
+</body>
+
+</html>

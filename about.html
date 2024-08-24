@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Network Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4CAF50, #009688);
+           
+            color: #333;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #007bff;
+            
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+           
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+           
+        }
+
+        /* Add animation to the navbar */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            animation: slideDown 0.5s ease;
+        }
+
+        /* Sticky navbar */
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            animation: slideDown 0.5s ease;
+        }
+
+        /* Style the content */
+        .content {
+            padding-top: 100px;
+           
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            color: black;
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <a href="/">Home</a>
+        <a href="/contribution">Contribution</a>
+        <a href="/guidance">Guidance</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h1>About Us</h1>
+        <div class="box">
+            <p>At Packet Trace, we're passionate about safeguarding your digital assets and empowering your
+                business to thrive securely in the digital age. Founded with a commitment to excellence, our team comprises
+                seasoned experts who bring a wealth of experience and cutting-edge knowledge to every project. We pride
+                ourselves on our innovative approach to cyber security, leveraging the latest technologies and methodologies
+                to stay ahead of evolving threats. With a focus on customer satisfaction and continuous improvement, we
+                tailor our solutions to meet your unique needs and challenges. Our track record of success is underscored by
+                our prestigious clientele and numerous accolades in the industry. Beyond our professional endeavors, we're
+                dedicated to giving back to the community through educational initiatives and partnerships. Whether you're a
+                small business or a multinational corporation, we're here to be your trusted ally in the fight against cyber
+                threats. Connect with us today to learn more about how we can safeguard your digital future.
+            </p>
+        </div>
+        <div class="box">
+            <p>At Packet Trace, we're your dedicated partners in digital defense. With a team of seasoned
+                experts and a commitment to innovation, we provide tailored solutions to protect your assets from evolving
+                cyber threats. Our track record speaks for itself, with satisfied clients and industry recognition attesting
+                to our expertise. Beyond business, we're committed to giving back to the community through education and
+                collaboration. Trust us to secure your digital future.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Packet Tracer. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

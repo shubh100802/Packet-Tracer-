@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guidance - Network Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4CAF50, #009688);
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        .navbar a.active {
+            background-color: #0056b3;
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            animation: slideDown 0.5s ease;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            animation: slideDown 0.5s ease;
+        }
+
+        .content {
+            padding-top: 100px;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 60px;
+            color: black;
+        }
+
+        .person-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInCard 1s forwards;
+        }
+
+        @keyframes fadeInCard {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .person-card img {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            animation: fadeInImg 1s forwards;
+        }
+
+        @keyframes fadeInImg {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .person-card h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+            animation: fadeInText 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .person-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            animation: fadeInText 1s forwards;
+            margin: 60px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <a href="/">Home</a>
+        <a href="/contribution">Contribution</a>
+        <a href="/guidance">Guidance</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h1>Guidance</h1>
+
+        <div class="person-card">
+          <!--  <img src="{{ url_for('static', filename='Dr.-Adarsh_Patel_C.jpg') }}" alt="Person 1"> -->
+            <h2>Dr. Adarsh Patel</h2>
+            <p>Dr. Adarsh Patel is a doctorate in Computer Science and Engineering from Maulana Azad National Institute
+                of Technology, Bhopal (MANIT) and an M.Tech. in Computer Science from National Institute of Technology
+                Tiruchirappalli, Tamilnadu (NITT). He has worked in various reputed educational institutes of National
+                Importance. He has software industry experience of 2+ years of working in Oracle India Private Limited,
+                Bangalore (Server Technologies Branch). He has conducted expert lectures in several Institute of
+                National Importance. He secured All India Gate Rank 254 in GATE-2007. He has won a 50000/- Rs. cash
+                prize award for teaching a B.Tech. level course. He has published various research articles in reputed
+                journals and conferences of his research area Wireless Communication, VANET and Intelligent
+                Transportation System (ITS).</p>
+        </div>
+
+        <div class="person-card">
+           <!-- <img src="{{ url_for('static', filename='Mr.-SAJJAD-AHMED.jpg') }}" alt="Person 2"> -->
+            <h2>Dr. Sajjad Ahmed</h2>
+            <p>Sajjad Ahmed received a Masters of Technology degree in communication and information technology from the
+                National Institute of Technology Srinagar (NIT Srinagar), Jammu and Kashmir, India, in 2011. He has
+                submitted his Ph.D. thesis in computer engineering with the Dr. Zakir Hussein College of Engineering and
+                Technology, Aligarh Muslim University, Aligarh, India. He received the prestigious Visvesvaraya Ph.D.
+                fellowship from the Ministry of Electronics and IT (MeitY), Government of India, for pursuing his Ph.D.
+                He has more than 7 years of teaching experience as an assistant professor at NIT Srinagar and TEQIP-III,
+                a World Bank and MHRD project. He has also received research grants from AICTE. He has publications in
+                several peer-reviewed international journals. He is an open-source enthusiast, advocate, and active user
+                of open-source software. He is also a reviewer for many international conferences and journals. His
+                areas of interest in study include cyber security, ethical hacking, digital forensics, and multimedia
+                forensics</p>
+        </div>
+
+        <div class="person-card">
+         <!--    <img src="{{ url_for('static', filename='Dr.-Narottam-Das-Patel.jpg') }}" alt="Person 3"> -->
+            <h2>Dr. Narottam Das Patel</h2>
+            <p>Dr. Narottam Das Patel is an Assistant Professor in School of Computing Science and Engineering (SCSE)
+                and a member of SECURE – Centre of Excellence in Cyber Security at VIT Bhopal University. He earned his
+                doctorate from the Centre of Excellence in Cyber Security at The Institute for Development & Research in
+                Banking Technology (IDRBT) in Hyderabad, TS, India, established by the Reserve Bank of India, in
+                collaboration with the University of Hyderabad (UoH), TS, India in 2023. He completed his M.Tech degree
+                at SCIS, UoH, TS, India, in collaboration with Dell International, Hyderabad in 2015. Dr. Patel is also
+                a Subject Matter Expert at TCSiON, a confidential unit within Tata Consultancy Services (TCS), and holds
+                the position of Research & Development Specialist at SML2029 Research and Consulting Private Limited. He
+                reviews papers for journals affiliated with Inderscience, IEEE, and Springer publishers. He has 13
+                publications in peer-reviewed international journals with a high impact factor and 8 publications in
+                various international conferences held in India and abroad. During his tenure at IDRBT, he excelled in
+                key technical domains. As a Network System Administrator, he expertly managed network infrastructure,
+                including device configuration, IP address management, and vigilant monitoring. He also specialized in
+                Firewall VAPT, conducting rigorous assessments, rule reviews, and penetration tests to fortify
+                cybersecurity. His Cybersecurity Drills and VM Management skills showcased readiness and resource
+                efficiency, contributing significantly to IDRBT's cyber resilience.</p>
+        </div>
+    </div>
+
+  
+    <div class="footer">
+        <p>&copy; 2024 Packet Tracer. All rights reserved.</p>
+    </div>
+</body>
+
+</html>

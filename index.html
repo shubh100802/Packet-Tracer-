@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4CAF50, #009688);
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #007bff; 
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 20px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3; 
+        }
+
+        .navbar a.active {
+            background-color: #0056b3; 
+        }
+
+        /* Add animation to the navbar */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar {
+            animation: slideDown 0.5s ease;
+        }
+
+        
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            animation: slideDown 0.5s ease;
+        }
+
+        /*  content */
+        .content {
+            padding-top: 70px; 
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <a href="/">Home</a>
+        <a href="/contribution">Contribution</a>
+        <a href="/guidance">Guidance</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h1 style="color: white;">Packet Tracer</h1>
+        <button onclick="fetchData()">Click Here to Update</button>
+        <table id="packetTable">
+            <tr>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Source MAC</th>
+                <th>Destination MAC</th>
+                <th>Source IP</th>
+                <th>Destination IP</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Packet Tracer. All rights reserved.</p>
+    </div>
+
+    <script>
+        // JavaScript code to fetch data from backend and update the table
+        function fetchData() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    updateTable(data);
+                });
+        }
+
+        function updateTable(data) {
+            const table = document.getElementById('packetTable');
+            table.innerHTML = ''; // Clear previous data
+            
+            // Add the column headers as the first row
+            const headerRow = table.insertRow();
+            for (const key in data[0]) {
+                const headerCell = headerRow.insertCell();
+                headerCell.textContent = key.charAt(0).toUpperCase() + key.slice(1); 
+            }
+
+            // Add data rows
+            data.forEach(packet => {
+                const row = table.insertRow();
+                for (const key in packet) {
+                    const cell = row.insertCell();
+                    cell.textContent = packet[key];
+                }
+            });
+        }
+
+        // Fetch data periodically
+        setInterval(fetchData, 10000); // Fetch data every 10 seconds
+
+        // Sticky navbar
+        window.onscroll = function() {stickyNavbar()};
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function stickyNavbar() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
+</body>
+</html>
